@@ -11,6 +11,7 @@ namespace Tyuiu.TolmachevVV.Sprint6.Review.V22.Lib
     {
         public int CalculateMatrix(int[,] matrix, int n1, int n2, int R, int K, int L)
         {
+            int count1 = 0;
             int count = 0;
             bool right = !(n1 >= 0 || n2 <= 0 || R < 0 || K < 0 || L <= 0 || K > L);
             if (!right)
@@ -19,12 +20,22 @@ namespace Tyuiu.TolmachevVV.Sprint6.Review.V22.Lib
             }
             for (int i = 0; i < matrix.GetLength(1); i++)
             {
-                if ((i < K || i > L) && matrix[R, i] > 0)
+                if ((i >= K && i <= L) && matrix[R, i] > 0)
                 {
                     count++;
                 }
             }
-            return count;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] == 0)
+                    {
+                        count1++;
+                    }
+                }
+            }
+            return count1 - count;
         }
         public int[,] GetMatrix(int n1, int n2, int N, int M)
         {
