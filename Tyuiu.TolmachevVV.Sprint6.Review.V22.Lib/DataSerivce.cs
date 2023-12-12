@@ -18,9 +18,9 @@ namespace Tyuiu.TolmachevVV.Sprint6.Review.V22.Lib
             {
                 return -1;
             }
-            for (int i = 0; i < matrix.GetLength(1); i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                if ((i >= K && i <= L) && matrix[R, i] > 0)
+                if (i >= K && i <= L && matrix[R, i] > 0)
                 {
                     count++;
                 }
@@ -29,7 +29,7 @@ namespace Tyuiu.TolmachevVV.Sprint6.Review.V22.Lib
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    if (matrix[i, j] == 0)
+                    if (matrix[i, j] > 0)
                     {
                         count1++;
                     }
